@@ -25,10 +25,6 @@ resource "aws_security_group" "allow-http" {
 
   tags = {
     Name = "allow-http",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Owner = "ANIRBAN"
   }
 }
