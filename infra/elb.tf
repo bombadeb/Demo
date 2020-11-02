@@ -22,10 +22,6 @@ resource "aws_elb" "my-elb" {
   connection_draining_timeout = 400
   tags = {
     Name = "allow-http",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week" 
+    Owner = "Anirban"
   }
 }
