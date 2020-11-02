@@ -1,0 +1,4 @@
+dest_artifact_folder: /mnt/artifcat
+jar_path_src: "/home/ubuntu/JAR/"
+jar_name: "spring-petclinic-2.3.0.BUILD-SNAPSHOT.jar"
+ansible_python_interpreter: /usr/bin/python3

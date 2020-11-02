@@ -1,0 +1,44 @@
+---
+-
+ hosts: spring_vms
+ become: yes
+ vars:
+  - dest_artifact_folder: /mnt/artifcat
+    #- jar_path_src: "../files/"
+    #  - jar_name: "test.txt"
+
+ tasks:
+  - name: ping agent
+    ping:
+    
+  - name: Upgrade the OS (apt-get dist-upgrade)
+    apt:
+      upgrade: dist
+
+
+  - name: Add specified repository into sources list
+    apt_repository:
+      repo: ppa:webupd8team/java
+      state: present
+
+  - name: Install Java
+    apt: 
+      name: openjdk-8-jdk
+      state: present
+  
+  - name: create artifcat folder
+    file:
+      path: "{{ dest_artifact_folder }}"
+      state: directory
+
+  - name: Copy Jar Application 
+    copy:
+      src: "{{ jar_path_src }}"
+      dest: "{{ dest_artifact_folder }}/target"
+      mode: '0744'
+  
+  - name: Run Jar File
+    shell: nohup java -jar "{{ dest_artifact_folder }}/target/{{ jar_name }}" & > ~/spring-app.out
+    aync: 15
+    poll: 5 
+
