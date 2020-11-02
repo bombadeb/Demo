@@ -13,4 +13,9 @@ resource "aws_instance" "example" {
 
   # user data for installing Jenkins
   user_data = "${file("install_Jenkins.sh")}"
+  
+  tags = {
+    Name = "Instance-2",
+    Owner = "ANIRBAN"
+  }
 }
