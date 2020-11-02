@@ -32,10 +32,6 @@ resource "aws_security_group" "allow-ssh" {
 
   tags = {
     Name = "allow-ssh",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Owner = "ANIRBAN"
   }
 }
