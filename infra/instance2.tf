@@ -12,11 +12,7 @@ resource "aws_instance" "application" {
   key_name = var.AWS_KEY
 
   tags = {
-    Name = "Gridraster",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Name = "Instance-1",
+    Owner = "ANIRBAN"
   }
 }
