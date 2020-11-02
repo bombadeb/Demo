@@ -7,11 +7,7 @@ resource "aws_vpc" "main" {
   enable_classiclink   = "false"
   tags = {
     Name = "main",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Owner = "ANIRBAN"
   }
 }
 
@@ -25,11 +21,7 @@ resource "aws_subnet" "main-public-1" {
 
   tags = {
     NAME = "main-public-1",
-    OWNER = "gs-1074",
-    PRACTICE = "CIS",
-    PROJECT = "POC",
-    PURPOSE = "Project POC",
-    DURATION = "1 Week"
+    OWNER = "ANIRBAN"
   }
 }
 
@@ -42,11 +34,7 @@ resource "aws_subnet" "main-private-1" {
 
   tags = {
     Name = "main-private-1",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Owner = "ANIRBAN"
   }
 }
 
@@ -56,11 +44,7 @@ resource "aws_internet_gateway" "main-gw" {
 
   tags = {
     Name = "main",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Owner = "ANIRBAN"
   }
 }
 
@@ -84,11 +68,7 @@ resource "aws_route_table" "main-public" {
   }
   tags = {
     Name = "main-public-1",
-    Owner = "gs-1074",
-    Practice = "CIS",
-    Project = "POC",
-    Purpose = "Project POC",
-    Duration = "1 Week"
+    Owner = "ANIRBAN"
   }
 }
 
