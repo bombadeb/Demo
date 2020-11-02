@@ -1,0 +1,37 @@
+#!groovy
+
+def checkout_git_code(String repo_url, String branch, String credentials_id,
+    String target_directory, Boolean polling_enabled, String branch_type) {
+    
+	checkout poll: polling_enabled, scm: [$class: 'GitSCM', branches: [[name: "*/main"]],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: "${target_directory}"]],
+        submoduleCfg: [],
+        userRemoteConfigs: [[credentialsId: "${credentials_id}", url: "${repo_url}"]]]
+}
+
+node {
+  try {
+      stage('Checkout Source Code for Demo-Project') {
+        checkout_git_code('https://spring-projects/spring-petclinic.git',
+                "main", '', false, 'main')
+      }
+      stage('Build Demo-Project') {
+          sh '''#!/bin/bash  
+                    cd spring-petclinic/
+                    java -jar target/*.jar
+                    mkdir -p mnt/artefact
+                    cp target/*.jar mnt/artefact
+                '''
+      }
+ }
+    catch (e) 
+    {
+        currentBuild.result = "FAILED"
+        throw e
+    } 
+    finally 
+    {  
+        //notifybuild
+    }
+}
