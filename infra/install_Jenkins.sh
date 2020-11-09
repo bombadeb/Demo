@@ -8,4 +8,4 @@ sudo apt-get install jenkins -y
 sudo systemctl start jenkins
 sudo apt install software-properties-common
 sdo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo apt install ansible -y
