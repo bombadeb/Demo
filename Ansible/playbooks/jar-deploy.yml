@@ -39,6 +39,6 @@
   
   - name: Run Jar File
     shell: nohup java -jar "{{ dest_artifact_folder }}/target/{{ jar_name }}" & > ~/spring-app.out
-    aync: 15
+    async: 15
     poll: 5 
 
